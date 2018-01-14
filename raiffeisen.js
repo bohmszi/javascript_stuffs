@@ -5,7 +5,12 @@
 var x = document.getElementsByClassName("billInfoBox");
 var aKeret = x[0].rows[1].getElementsByClassName("rightText redText")[0].outerText.replace(/[^\d.]/g, '').slice(0, -2);
 var aFelhasznalt = x[0].rows[4].getElementsByClassName("rightText")[0].outerText.replace(/[^\d.]/g, '').slice(0, -2);
-var hitel = aKeret - aFelhasznalt;
+var aJovairt = x[1].rows[4].getElementsByClassName("rightText")[0].outerText.replace(/[^\d.]/g, '').slice(0, -2);
+if ( aFelhasznalt === aJovairt ) {
+  var hitel = aKeret;
+} else {
+  var hitel = aKeret - aFelhasznalt;
+}
 
 // New row to highlight 'egyenleg'
 var row = x[0].insertRow(0);
